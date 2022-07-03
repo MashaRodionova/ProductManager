@@ -1,23 +1,26 @@
 public class ProductManager {
     ProductRepository repo = new ProductRepository();
 
-    public ProductManager(ProductRepository repo) {
-        this.repo = repo;
-    }
-
     public void add(Product product){
         repo.save(product);
     }
 
-    public void search(String text){
-        Product[] result = new Product[0];
-        for (Product product : repo.products) {
-            if(matches(product, text)){
-                repo.save(product);
+    public Product[] search(String text){
+        int countOfIndex=0;
+        for (Product prod : repo.products) {
+            if (prod.getName().contains(text)) {
+                countOfIndex++;
             }
         }
-    }
-    public boolean matches(Product product, String search){
-        return product.getName().contains(search);
+        Product[] result = new Product[countOfIndex];
+        int count = 0;
+        for (Product product : repo.products) {
+            if(product.getName().contains(text)){
+               result[count] = product;
+                count++;
+            }
+
+        }
+        return result;
     }
 }

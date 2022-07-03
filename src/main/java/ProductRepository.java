@@ -6,7 +6,7 @@ public class ProductRepository {
         for (int i = 0; i < products.length; i++) {
             tmp[i] = products[i];
         }
-        tmp[tmp.length - 1] = product; //почему за индекс tmp нельзя взять (products.lengh + 1)? тест падает при этом условии
+        tmp[tmp.length - 1] = product;
         products = tmp;
     }
 
@@ -15,15 +15,21 @@ public class ProductRepository {
     }
 
     public void deleteById(int id) {
-        Product[] tmp = new Product[products.length - 1];
+        int countOfIndex=0;
+        for (Product prod : products) {
+            if (prod.getId() != id) {
+                countOfIndex++;
+            }
+        }
+        Product[] tmp = new Product[countOfIndex];
         int copyToIndex = 0;
         for (Product product : products) {
             if (product.getId() != id) {
                 tmp[copyToIndex] = product;
+                copyToIndex++;
             }
-            copyToIndex++;
-
         }
+        products = tmp;
     }
 
 

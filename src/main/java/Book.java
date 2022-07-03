@@ -5,8 +5,4 @@ public class Book extends Product {
         super(id, name, cost);
         this.author = author;
     }
-
-    public String getAuthor() {
-        return author;
-    }
 }

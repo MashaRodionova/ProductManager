@@ -8,14 +8,14 @@ public class ProductManager {
     public Product[] search(String text){
         int countOfIndex=0;
         for (Product prod : repo.products) {
-            if (prod.getName().contains(text)) {
+            if (prod.matches(text)) {
                 countOfIndex++;
             }
         }
         Product[] result = new Product[countOfIndex];
         int count = 0;
         for (Product product : repo.products) {
-            if(product.getName().contains(text)){
+            if(product.matches(text)){
                result[count] = product;
                 count++;
             }

@@ -15,7 +15,7 @@ public class ProductRepository {
     }
 
     public void deleteById(int id) {
-        int countOfIndex=0;
+        int countOfIndex = 0;
         for (Product prod : products) {
             if (prod.getId() != id) {
                 countOfIndex++;

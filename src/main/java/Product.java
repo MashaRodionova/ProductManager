@@ -1,5 +1,5 @@
 public class Product {
-   private int id;
+    private int id;
     private String name;
     private int cost;
 
@@ -17,4 +17,11 @@ public class Product {
         return id;
     }
 
+    public boolean matches(String search) {
+        if (name.contains(search)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

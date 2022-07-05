@@ -5,7 +5,7 @@ public class BookTests {
 
 
     @Test
-    public void test1(){
+    public void test1() {
         Product book = new Book(365, "Mama myla ramu", 1000, "Begbeder");
         Boolean expected = true;
         Boolean actual = book.matches("gbed");

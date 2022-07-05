@@ -11,8 +11,9 @@ public class ManagerTests {
     Product product7 = new Book(3679, "ivan", 1000, "Lena");
 
     ProductManager tmp = new ProductManager();
+
     @Test
-    public void test1(){
+    public void test1() {
 
         tmp.add(product5);
         tmp.add(product2);
@@ -23,7 +24,7 @@ public class ManagerTests {
     }
 
     @Test
-    public void test2(){
+    public void test2() {
         tmp.add(product1);
         tmp.add(product2);
         tmp.add(product3);
@@ -38,7 +39,7 @@ public class ManagerTests {
     }
 
     @Test
-    public void test3(){
+    public void test3() {
         tmp.add(product1);
         tmp.add(product2);
         tmp.add(product3);

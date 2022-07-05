@@ -1,4 +1,4 @@
-public class Smartphone extends Product{
+public class Smartphone extends Product {
     private String manufacturer;
 
     public Smartphone(int id, String name, int cost, String manufacturer) {
@@ -10,9 +10,9 @@ public class Smartphone extends Product{
         if (this.getName().contains(search)) {
             return true;
         } else {
-            if(manufacturer.contains(search)){
+            if (manufacturer.contains(search)) {
                 return true;
-            }else {
+            } else {
                 return false;
             }
         }

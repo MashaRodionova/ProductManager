@@ -12,9 +12,9 @@ public class Book extends Product {
         if (this.getName().contains(search)) {
             return true;
         } else {
-            if(author.contains(search)){
+            if (author.contains(search)) {
                 return true;
-            }else {
+            } else {
                 return false;
             }
         }

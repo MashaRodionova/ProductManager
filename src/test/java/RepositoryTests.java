@@ -10,7 +10,7 @@ public class RepositoryTests {
     Product product6 = new Smartphone(378, "Masha and Android", 1000, "Masha");
 
     @Test
-    public void test1(){
+    public void test1() {
         ProductRepository tmp = new ProductRepository();
         tmp.save(product5);
         tmp.save(product2);
@@ -21,7 +21,7 @@ public class RepositoryTests {
     }
 
     @Test
-    public void test2(){
+    public void test2() {
         ProductRepository tmp = new ProductRepository();
         tmp.save(product5);
         tmp.save(product1);
@@ -36,7 +36,7 @@ public class RepositoryTests {
     }
 
     @Test
-    public void test3(){
+    public void test3() {
         ProductRepository tmp = new ProductRepository();
         tmp.save(product5);
         tmp.save(product1);

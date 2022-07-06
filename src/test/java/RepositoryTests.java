@@ -9,19 +9,9 @@ public class RepositoryTests {
     Product product5 = new Smartphone(364, "Iphone", 1000, "Apple");
     Product product6 = new Smartphone(378, "Masha and Android", 1000, "Masha");
 
-    @Test
-    public void test1() {
-        ProductRepository tmp = new ProductRepository();
-        tmp.save(product5);
-        tmp.save(product2);
-        tmp.save(product4);
-        Product[] expected = {product5, product2, product4};
-        Product[] actual = tmp.getProducts();
-        Assertions.assertArrayEquals(expected, actual);
-    }
 
     @Test
-    public void test2() {
+    public void test1() {
         ProductRepository tmp = new ProductRepository();
         tmp.save(product5);
         tmp.save(product1);
@@ -35,19 +25,23 @@ public class RepositoryTests {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+
     @Test
-    public void test3() {
-        ProductRepository tmp = new ProductRepository();
-        tmp.save(product5);
-        tmp.save(product1);
-        tmp.save(product3);
-        tmp.save(product6);
-        tmp.save(product5);
-        tmp.save(product5);
-        Product[] expected = {product5, product1, product3, product6, product5, product5};
-        Product[] actual = tmp.getProducts();
-        Assertions.assertArrayEquals(expected, actual);
+    public void test2() {
+        ProductRepository repo = new ProductRepository();
+        repo.save(product5);
+        repo.save(product1);
+        repo.save(product3);
+        repo.save(product2);
+        repo.save(product6);
+        Assertions.assertThrows(NotFoundException.class, () -> {
+            repo.deleteById(777);
+        });
+
 
     }
 
+
 }
+
+

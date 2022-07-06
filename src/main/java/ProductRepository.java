@@ -15,22 +15,44 @@ public class ProductRepository {
     }
 
     public void deleteById(int id) {
-        int countOfIndex = 0;
-        for (Product prod : products) {
-            if (prod.getId() != id) {
-                countOfIndex++;
+
+        if (findById(id) == null) {
+            throw new NotFoundException(
+                    "Element with id: " + id + " not found"
+            );
+        } else {
+            int countOfIndex = 0;
+            for (Product prod : products) {
+                if (prod.getId() != id) {
+                    countOfIndex++;
+                }
             }
+            Product[] tmp = new Product[countOfIndex];
+            int copyToIndex = 0;
+            for (Product product : products) {
+                if (product.getId() != id) {
+                    tmp[copyToIndex] = product;
+                    copyToIndex++;
+                }
+            }
+            products = tmp;
         }
-        Product[] tmp = new Product[countOfIndex];
-        int copyToIndex = 0;
+    }
+
+    public Product findById(int id) {
         for (Product product : products) {
-            if (product.getId() != id) {
-                tmp[copyToIndex] = product;
-                copyToIndex++;
+            if (product.getId() == id) {
+                return product;
             }
         }
-        products = tmp;
+        return null;
+
+
     }
 
 
 }
+
+
+
+
